@@ -11,14 +11,16 @@
 		BD2D1E4D25C8D89F0083E689 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D1E4C25C8D89F0083E689 /* Validation.swift */; };
 		BD2D1E6825C907770083E689 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D1E6725C907770083E689 /* Constants.swift */; };
 		BD2D1E7225C9B6110083E689 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D1E7125C9B6100083E689 /* String.swift */; };
+		BD2D1E7625C9DB300083E689 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D1E7525C9DB300083E689 /* StringTests.swift */; };
+		BD2D1E8E25C9DF490083E689 /* ValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D1E8D25C9DF490083E689 /* ValidationTests.swift */; };
 		BD443A4625C6071800D9FCD5 /* FileFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443A4525C6071800D9FCD5 /* FileFormat.swift */; };
+		BD97E44525C9FF3200FC86C3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97E44425C9FF3200FC86C3 /* Store.swift */; };
 		BDA2D8B525C6025F00DFFFBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2D8B425C6025F00DFFFBF /* AppDelegate.swift */; };
 		BDA2D8B725C6025F00DFFFBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2D8B625C6025F00DFFFBF /* SceneDelegate.swift */; };
 		BDA2D8B925C6025F00DFFFBF /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2D8B825C6025F00DFFFBF /* MainVC.swift */; };
 		BDA2D8BC25C6025F00DFFFBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA2D8BA25C6025F00DFFFBF /* Main.storyboard */; };
 		BDA2D8BE25C6026100DFFFBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA2D8BD25C6026100DFFFBF /* Assets.xcassets */; };
 		BDA2D8C125C6026100DFFFBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA2D8BF25C6026100DFFFBF /* LaunchScreen.storyboard */; };
-		BDA2D8CC25C6026200DFFFBF /* DataNormalizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2D8CB25C6026200DFFFBF /* DataNormalizeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,10 @@
 		BD2D1E4C25C8D89F0083E689 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		BD2D1E6725C907770083E689 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD2D1E7125C9B6100083E689 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		BD2D1E7525C9DB300083E689 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		BD2D1E8D25C9DF490083E689 /* ValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTests.swift; sourceTree = "<group>"; };
 		BD443A4525C6071800D9FCD5 /* FileFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFormat.swift; sourceTree = "<group>"; };
+		BD97E44425C9FF3200FC86C3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		BDA2D8B125C6025F00DFFFBF /* DataNormalize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataNormalize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA2D8B425C6025F00DFFFBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDA2D8B625C6025F00DFFFBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +51,6 @@
 		BDA2D8C025C6026100DFFFBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDA2D8C225C6026100DFFFBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDA2D8C725C6026200DFFFBF /* DataNormalizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataNormalizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDA2D8CB25C6026200DFFFBF /* DataNormalizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNormalizeTests.swift; sourceTree = "<group>"; };
 		BDA2D8CD25C6026200DFFFBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,7 @@
 		BD2D1E5C25C902490083E689 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BD97E44425C9FF3200FC86C3 /* Store.swift */,
 				BD2D1E6725C907770083E689 /* Constants.swift */,
 				BD2D1E7125C9B6100083E689 /* String.swift */,
 				BD2D1E4C25C8D89F0083E689 /* Validation.swift */,
@@ -132,7 +137,8 @@
 		BDA2D8CA25C6026200DFFFBF /* DataNormalizeTests */ = {
 			isa = PBXGroup;
 			children = (
-				BDA2D8CB25C6026200DFFFBF /* DataNormalizeTests.swift */,
+				BD2D1E7525C9DB300083E689 /* StringTests.swift */,
+				BD2D1E8D25C9DF490083E689 /* ValidationTests.swift */,
 				BDA2D8CD25C6026200DFFFBF /* Info.plist */,
 			);
 			path = DataNormalizeTests;
@@ -241,6 +247,7 @@
 				BD443A4625C6071800D9FCD5 /* FileFormat.swift in Sources */,
 				BD2D1E4525C8D1970083E689 /* Errors.swift in Sources */,
 				BDA2D8B925C6025F00DFFFBF /* MainVC.swift in Sources */,
+				BD97E44525C9FF3200FC86C3 /* Store.swift in Sources */,
 				BDA2D8B525C6025F00DFFFBF /* AppDelegate.swift in Sources */,
 				BD2D1E6825C907770083E689 /* Constants.swift in Sources */,
 				BD2D1E4D25C8D89F0083E689 /* Validation.swift in Sources */,
@@ -253,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDA2D8CC25C6026200DFFFBF /* DataNormalizeTests.swift in Sources */,
+				BD2D1E7625C9DB300083E689 /* StringTests.swift in Sources */,
+				BD2D1E8E25C9DF490083E689 /* ValidationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

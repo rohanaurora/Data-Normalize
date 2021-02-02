@@ -12,7 +12,9 @@ class MainVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var outputLabel: UILabel!
     @IBOutlet weak var validateButton: UIButton!
-    
+    var s = Store()
+    var newC :String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -26,22 +28,37 @@ class MainVC: UIViewController, UITextFieldDelegate {
     }
 }
 
+// MARK: Display
+
 extension MainVC {
-    private func validateUserInput() {
+    private func validateUserInput(_ enroll: Bool) {
         let input = textField.text ?? ""
-        let v = Validate(input: input)
-        outputLabel.text = v.displayOutput()
+        var v = Validate(input: input)
+    
+        if enroll {
+            let _ = v.displayOutput(enroll)
+            newC = v.courseNameNumber
+        }
+        
+        let enroll: Bool = s.isUserEnrolled(newC)
+        if enroll {
+            outputLabel.text = v.displayOutput() + "\nYou have already been enrolled."
+        } else {
+            s.cache.append(newC)
+            outputLabel.text = v.displayOutput()
+        }
     }
 }
 
-// MARK: - Actions
+// MARK: Actions
+
 extension MainVC  {
     @IBAction func validateButtonTapped(_ sender: Any) {
-        validateUserInput()
+        validateUserInput(false)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        validateUserInput()
+        validateUserInput(true)
         return true
     }
 }

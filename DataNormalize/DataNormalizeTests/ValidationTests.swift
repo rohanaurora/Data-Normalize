@@ -1,14 +1,14 @@
 //
-//  DataNormalizeTests.swift
+//  ValidationTests.swift
 //  DataNormalizeTests
 //
-//  Created by Rohan Aurora on 2021-01-30.
+//  Created by Rohan Aurora on 2021-02-02.
 //
 
 import XCTest
 @testable import DataNormalize
 
-class DataNormalizeTests: XCTestCase {
+class ValidationTests: XCTestCase {
 
     var input: String!
     var validate: Validate!
@@ -25,7 +25,7 @@ class DataNormalizeTests: XCTestCase {
         input = ""
         validate = Validate(input: input)
         let validated = validate.displayOutput()
-        let expected = VError.separatorFailed.localizedDescription
+        let expected = VError.dataIsNil.localizedDescription
         XCTAssertEqual(expected, validated)
     }
     

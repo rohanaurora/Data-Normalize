@@ -20,6 +20,11 @@ struct FileFormat {
         self.year = year
         self.semester = Semester(rawValue: sem)?.desc ?? sem
     }
+    
+    func enrolled(dept: String, cn: Int) -> String {
+         return dept + String(cn)
+    }
+
 }
 
 //MARK: - Debug Description -
@@ -28,10 +33,10 @@ extension FileFormat: CustomDebugStringConvertible {
     var debugDescription: String {
         var description: String = ""
         
-        description.append(String(format:"\u{2022} Department: %@ \n", department))
-        description.append(String(format:"\u{2022} Course Number: %d \n", courseNumber))
-        description.append(String(format:"\u{2022} Year: %02d \n", year))
-        description.append(String(format:"\u{2022} Semester: %@ \n", semester))
+        description.append(String(format:"%@ Department: %@ \n", Constants.bullet, department))
+        description.append(String(format:"%@ Course Number: %d \n", Constants.bullet, courseNumber))
+        description.append(String(format:"%@ Year: %02d \n", Constants.bullet, year))
+        description.append(String(format:"%@ Semester: %@ \n", Constants.bullet, semester))
         
         return description
     }

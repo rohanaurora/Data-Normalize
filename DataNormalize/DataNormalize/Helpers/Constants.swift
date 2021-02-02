@@ -30,6 +30,7 @@ enum Semester: String, CaseIterable {
 struct Constants {
     static let space: String = " "
     static let mainTitle: String = "Data Normalization"
+    static let bullet: String = "\u{2022}"
     static let filePlaceholder: String = "e.g. CS111 Fall 2016"
     static let wordPattern = "([A-Z]|[a-z])+"
     static let numPattern = "([0-9])+"

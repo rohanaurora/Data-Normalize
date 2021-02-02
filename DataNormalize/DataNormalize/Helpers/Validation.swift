@@ -9,18 +9,20 @@ import Foundation
 
 struct Validate {
     let input: String
+    var courseNameNumber: String = ""
     
-    private func parseInput() throws -> String {
+    /// Parses `input` string and returns a parsed String.
+    mutating func parseInput(_ enrolled: Bool) throws -> String {
         
         let wordArray = matches(for: Constants.wordPattern, in: input)
         let numArray = matches(for: Constants.numPattern, in: input)
         let spaceMatches = matches(for: Constants.separatorPattern, in: input)
         
-        // Space
-        if spaceMatches?.count == 0 || input.count > 0 && !input.contains(Constants.space)  { return VError.separatorFailed.localizedDescription }
-        
         // Format
         if wordArray!.count != 2 || numArray!.count != 2 { return VError.dataIsNil.localizedDescription }
+        
+        // Space
+        if spaceMatches?.count == 0 { return VError.separatorFailed.localizedDescription }
         
         // Department
         guard let dept = wordArray?.first else { return VError.deptFailed.localizedDescription }
@@ -35,23 +37,31 @@ struct Validate {
         if !semVariations.contains(sem) { return VError.semFailed.localizedDescription }
         
         // Year
-        guard var year = Int((numArray?.last)!) else { return VError.yearFailed.localizedDescription }
+        guard let n = numArray?.last, var year = Int(n) else { return VError.yearFailed.localizedDescription }
         if (0...25).contains(year) { year += 2000 }
         if !(2000...2025).contains(year) { return VError.yearFailed.localizedDescription }
+        
+        if enrolled {
+            self.courseNameNumber = dept + String(cn)
+        }
         
         let file = FileFormat(dept: dept, cn: cn, year: year, sem: sem)
         return file.debugDescription
     }
     
-    public func displayOutput() -> String {
+    /// Returns output after validations.
+    mutating func displayOutput(_ enrolled: Bool? = false) -> String {
         do {
-            let str = try parseInput()
+            let str = try parseInput(enrolled!)
             return str
         } catch {
             return("Please try again later.")
         }
     }
     
+    
+    
+    /// Finds matches of the entered `regex` in `text` to return an optional String array.
     private func matches(for regex: String, in text: String) -> [String]? {
         do {
             let regex = try NSRegularExpression(pattern: regex)

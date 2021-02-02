@@ -7,10 +7,10 @@
 
 import Foundation
 
-/* A department is always one or more alphabetic characters, and a course number is always one or more numeric characters.
-   Semester is either an abbreviation or a word, and a Year is either two digits or four digits.
-   Semester and Year can be swapped in position.
-   There is always a space between Department+Course Number and Semester+Year. */
+/* - A department is always one or more alphabetic characters, and a course number is always one or more numeric characters.
+   - Semester is either an abbreviation or a word, and a Year is either two digits or four digits.
+   - Semester and Year can be swapped in position.
+   - There is always a space between Department+Course Number and Semester+Year. */
 
 enum VError: Error {
     case dataIsNil
@@ -22,7 +22,7 @@ enum VError: Error {
 }
 
 
-//MARK: - Description -
+//MARK: Description -
 
 extension VError {
     var localizedDescription: String {
