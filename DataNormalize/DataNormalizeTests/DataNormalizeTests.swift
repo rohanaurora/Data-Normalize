@@ -25,7 +25,7 @@ class DataNormalizeTests: XCTestCase {
         input = ""
         validate = Validate(input: input)
         let validated = validate.displayOutput()
-        let expected = VError.dataIsNil.localizedDescription
+        let expected = VError.separatorFailed.localizedDescription
         XCTAssertEqual(expected, validated)
     }
     
@@ -58,7 +58,7 @@ class DataNormalizeTests: XCTestCase {
         validate = Validate(input: input)
         let validated = validate.displayOutput()
         
-        formatter = FileFormat(dept: "CS", cn: 401, year: 21, sem: "Fall")
+        formatter = FileFormat(dept: "CS", cn: 401, year: 2021, sem: "Fall")
         let expected = formatter!.debugDescription
 
         XCTAssertEqual(expected, validated)

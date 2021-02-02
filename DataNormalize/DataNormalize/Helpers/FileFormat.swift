@@ -18,7 +18,7 @@ struct FileFormat {
         self.department = dept
         self.courseNumber = cn
         self.year = year
-        self.semester = sem
+        self.semester = Semester(rawValue: sem)?.desc ?? sem
     }
 }
 

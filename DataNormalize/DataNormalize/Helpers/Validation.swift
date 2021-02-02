@@ -12,33 +12,32 @@ struct Validate {
     
     private func parseInput() throws -> String {
         
-        let stringPattern = "([A-Z]|[a-z])+"
-        let numPattern = "([0-9])+"
-        let resultArray: [String]? = matches(for: stringPattern, in: input)
-        let numArray: [String]? = matches(for: numPattern, in: input)
+        let wordArray = matches(for: Constants.wordPattern, in: input)
+        let numArray = matches(for: Constants.numPattern, in: input)
+        let spaceMatches = matches(for: Constants.separatorPattern, in: input)
         
         // Space
-        if input.count > 0 && !input.contains(Constants.space) { return VError.separatorFailed.localizedDescription }
-
+        if spaceMatches?.count == 0 || input.count > 0 && !input.contains(Constants.space)  { return VError.separatorFailed.localizedDescription }
+        
         // Format
-        if resultArray!.count != 2 || numArray!.count != 2 { return VError.dataIsNil.localizedDescription }
+        if wordArray!.count != 2 || numArray!.count != 2 { return VError.dataIsNil.localizedDescription }
         
         // Department
-        guard let dept = resultArray?.first else { return VError.deptFailed.localizedDescription }
+        guard let dept = wordArray?.first else { return VError.deptFailed.localizedDescription }
         
         // Course Number
         guard let cn = Int((numArray?.first)!) else { return VError.courseFailed.localizedDescription }
         
         // Semester
-        guard let sem = resultArray?.last else { return VError.semFailed.localizedDescription }
+        guard var sem = wordArray?.last else { return VError.semFailed.localizedDescription }
+        sem = sem.lowercased()
         let semVariations: [String] = Semester.allCases.map { $0.rawValue }
-        if !semVariations.contains(where: {$0.caseInsensitiveCompare(sem) == .orderedSame}) { return VError.semFailed.localizedDescription }
-
+        if !semVariations.contains(sem) { return VError.semFailed.localizedDescription }
+        
         // Year
-        guard let year = Int((numArray?.last)!) else { return VError.yearFailed.localizedDescription }
-        if !(00...99).contains(year) && !(2003...2022).contains(year)   {
-            return VError.yearFailed.localizedDescription
-        }
+        guard var year = Int((numArray?.last)!) else { return VError.yearFailed.localizedDescription }
+        if (0...25).contains(year) { year += 2000 }
+        if !(2000...2025).contains(year) { return VError.yearFailed.localizedDescription }
         
         let file = FileFormat(dept: dept, cn: cn, year: year, sem: sem)
         return file.debugDescription
@@ -56,8 +55,7 @@ struct Validate {
     private func matches(for regex: String, in text: String) -> [String]? {
         do {
             let regex = try NSRegularExpression(pattern: regex)
-            let results = regex.matches(in: text,
-                                        range: NSRange(text.startIndex..., in: text))
+            let results = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))
             return results.map {
                 String(text[Range($0.range, in: text)!])
             }
