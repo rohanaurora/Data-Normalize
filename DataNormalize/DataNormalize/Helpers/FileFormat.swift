@@ -28,10 +28,10 @@ extension FileFormat: CustomDebugStringConvertible {
     var debugDescription: String {
         var description: String = ""
         
-        description.append(String(format:"Department: %@ \n", department))
-        description.append(String(format:"Course Number: %d \n", courseNumber))
-        description.append(String(format:"Year: %d \n", year))
-        description.append(String(format:"Semester: %@ \n", semester))
+        description.append(String(format:"\u{2022} Department: %@ \n", department))
+        description.append(String(format:"\u{2022} Course Number: %d \n", courseNumber))
+        description.append(String(format:"\u{2022} Year: %02d \n", year))
+        description.append(String(format:"\u{2022} Semester: %@ \n", semester))
         
         return description
     }

@@ -10,24 +10,68 @@ import XCTest
 
 class DataNormalizeTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    var input: String!
+    var validate: Validate!
+    var formatter: FileFormat!
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        validate = nil
+        input = nil
+        formatter = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testContainsEmptyString() {
+        input = ""
+        validate = Validate(input: input)
+        let validated = validate.displayOutput()
+        let expected = VError.dataIsNil.localizedDescription
+        XCTAssertEqual(expected, validated)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testContainsMissingCourseNumber() {
+        input = "CS Fall 2003"
+        validate = Validate(input: input)
+        let validated = validate.displayOutput()
+        let expected = VError.dataIsNil.localizedDescription
+        XCTAssertEqual(expected, validated)
     }
+    
+    func testContainsIncorrectYear() {
+        input = "CS401 Fall 13003"
+        validate = Validate(input: input)
+        let validated = validate.displayOutput()
+        let expected = VError.yearFailed.localizedDescription
+        XCTAssertEqual(expected, validated)
+    }
+    
+    func testContainsYearWithOneDigit() {
+        input = "CS401 Fall 3"
+        validate = Validate(input: input)
+        let validated = validate.displayOutput()
+        let expected = VError.yearFailed.localizedDescription
+        XCTAssertNotEqual(expected, validated)
+    }
+    
+    func testContainsYearWithTwoDigits() {
+        input = "CS401 Fall 21"
+        validate = Validate(input: input)
+        let validated = validate.displayOutput()
+        
+        formatter = FileFormat(dept: "CS", cn: 401, year: 21, sem: "Fall")
+        let expected = formatter!.debugDescription
 
+        XCTAssertEqual(expected, validated)
+    }
+    
+    func testContainsYearWithFourDigits() {
+        input = "CS 401 Fall 2021"
+        validate = Validate(input: input)
+        let validated = validate.displayOutput()
+        
+        formatter = FileFormat(dept: "CS", cn: 401, year: 2021, sem: "Fall")
+        let expected = formatter!.debugDescription
+
+        XCTAssertEqual(expected, validated)
+    }
 }

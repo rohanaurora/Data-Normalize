@@ -18,35 +18,50 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ess-SE-u9q">
                                 <rect key="frame" x="25" y="113" width="364" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYY-7l-2QX">
-                                <rect key="frame" x="25" y="172" width="364" height="81.5"/>
+                                <rect key="frame" x="25" y="172" width="364" height="86"/>
                                 <string key="text">Department: CS
 Course Number: 111
 Year: 2016
 Semester: Fall</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4d8-pi-QKo">
+                                <rect key="frame" x="139" y="782" width="136" height="50"/>
+                                <color key="backgroundColor" red="0.015686274509803921" green="0.12941176470588234" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="25" minY="10" maxX="25" maxY="10"/>
+                                <state key="normal" title="Validate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="validateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ra-zA-8fG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ess-SE-u9q" secondAttribute="trailing" constant="25" id="20g-86-ud5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EYY-7l-2QX" secondAttribute="trailing" constant="25" id="2H0-6r-KWl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4d8-pi-QKo" secondAttribute="bottom" constant="30" id="L7I-cN-JpR"/>
                             <constraint firstItem="EYY-7l-2QX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="MSy-w6-9vn"/>
                             <constraint firstItem="ess-SE-u9q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="Mdc-1V-lq1"/>
                             <constraint firstItem="EYY-7l-2QX" firstAttribute="top" secondItem="ess-SE-u9q" secondAttribute="bottom" constant="25" id="Tha-3V-VnH"/>
                             <constraint firstItem="ess-SE-u9q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="qU1-8p-t5j"/>
+                            <constraint firstItem="4d8-pi-QKo" firstAttribute="centerX" secondItem="ess-SE-u9q" secondAttribute="centerX" id="wRw-GU-RQ2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1YZ-26-sFY"/>
                     <connections>
                         <outlet property="outputLabel" destination="EYY-7l-2QX" id="Ph8-YV-ROL"/>
                         <outlet property="textField" destination="ess-SE-u9q" id="swp-ra-ls8"/>
+                        <outlet property="validateButton" destination="4d8-pi-QKo" id="rQc-lX-18d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
